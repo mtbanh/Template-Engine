@@ -10,7 +10,7 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
 
-
+const employeeList= []
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
 function promptQs(){
@@ -52,6 +52,9 @@ async function generateProfile(){
                         message: "What's their office number?",
                         name: "officeNum"
                     })
+                    const { office } = officeNum;
+                    const manager = new Manager (name, id, email, office);
+                    employeeList.push(manager);
                 case "Engineer":
                 case "Intern":
             }
@@ -61,6 +64,8 @@ async function generateProfile(){
         console.log(err);
     }
 }
+
+generateProfile();
 
 // After the user has input all employees desired, call the `render` function (required
 // above) and pass in an array containing all employee objects; the `render` function will
