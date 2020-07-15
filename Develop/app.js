@@ -39,6 +39,21 @@ function promptQs(){
     ])
 };
 
+async function generateProfile(){
+    try {
+        let wantsToCont = true;
+        while (wantsToCont){
+            const employeeProfile = await promptQs();
+            const answers = {name, id, email, role};
+            switch(role){
+                case "Manager":
+                case "Engineer":
+                case "Intern":
+            }
+        }
+    }
+}
+
 // After the user has input all employees desired, call the `render` function (required
 // above) and pass in an array containing all employee objects; the `render` function will
 // generate and return a block of HTML including templated divs for each employee!
