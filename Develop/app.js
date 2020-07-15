@@ -44,13 +44,21 @@ async function generateProfile(){
         let wantsToCont = true;
         while (wantsToCont){
             const employeeProfile = await promptQs();
-            const answers = {name, id, email, role};
+            const {name, id, email, role} = employeeProfile;
             switch(role){
                 case "Manager":
+                    const officeNum = await inquirer.prompt({
+                        type: "input",
+                        message: "What's their office number?",
+                        name: "officeNum"
+                    })
                 case "Engineer":
                 case "Intern":
             }
         }
+    }
+    catch (err) {
+        console.log(err);
     }
 }
 
